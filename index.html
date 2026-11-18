@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Discover, compare and shortlist useful AI tools for coding, design, research, image, video, audio and automation.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BDX AI HUB — Find the right AI tool">
+  <meta property="og:description" content="A curated, free-first directory to discover and compare AI tools by task.">
+  <meta property="og:image" content="assets/og-cover.png">
+  <!-- DOMAIN_METADATA_START -->
+  <!-- Run python tools/configure-domain.py --domain your-domain.com after connecting a domain. -->
+  <!-- DOMAIN_METADATA_END -->
+  <title>BDX AI HUB — Find the right AI tool</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#discover" aria-label="BDX AI HUB home">
+        <span class="brand-mark" aria-hidden="true"><span>B</span><i></i></span>
+        <span class="brand-copy"><strong>BDX <em>AI HUB</em></strong><small>THE AI TOOL DIRECTORY</small></span>
+      </a>
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav class="primary-nav">
+        <button class="nav-link active" data-view="discover"><span class="nav-icon">⌂</span> Discover <span class="nav-count" id="allCount">—</span></button>
+        <button class="nav-link" data-view="compare"><span class="nav-icon">⇄</span> Compare <span class="nav-count" id="compareCount">0</span></button>
+        <button class="nav-link" data-view="saved"><span class="nav-icon">♡</span> Saved tools <span class="nav-count" id="savedCount">0</span></button>
+      </nav>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-heading-row"><div class="sidebar-label">CATEGORIES</div><span class="tiny-muted" id="categoryCount">—</span></div>
+      <nav id="sidebarCategories" class="category-nav" aria-label="Tool categories"></nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-note">
+        <span class="note-spark">✳</span>
+        <strong>Free-first discovery</strong>
+        <p>Find useful tools before paying for another subscription.</p>
+      </div>
+      <div class="sidebar-footer"><span class="status-dot"></span> DIRECTORY MODE <span class="version-tag">v1.0</span></div>
+    </aside>
+
+    <main id="main" class="main-content">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>BDX AI HUB</span><b>/</b><strong id="breadcrumbCurrent">Discover</strong></div>
+        <div class="topbar-actions">
+          <label class="search-box" for="globalSearch"><span aria-hidden="true">⌕</span><input id="globalSearch" type="search" placeholder="Search AI tools, tasks..." autocomplete="off"><kbd>⌘ K</kbd></label>
+          <button class="icon-button" id="notificationButton" aria-label="Notification settings" title="Notification settings">♧</button>
+          <button class="avatar-button" id="aboutButton" aria-label="About BDX AI HUB">B</button>
+        </div>
+      </header>
+
+      <section id="discoverView" class="view active" aria-labelledby="pageTitle">
+        <section class="hero-section">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR AI TOOL COMPASS <span class="eyebrow-line"></span> <span class="eyebrow-date" id="updatedLabel">CURATED DIRECTORY</span></div>
+            <h1 id="pageTitle">Find the right AI.<br><span>Get more done.</span></h1>
+            <p class="hero-description">A smarter starting point for coding, building, creating and researching. Compare tools by what you actually need—not hype.</p>
+            <div class="hero-buttons"><button class="button button-primary" id="exploreButton">Explore tools <span>↗</span></button><button class="button button-quiet" id="advisorFocusButton">Find my best AI <span>✳</span></button></div>
+            <div class="hero-footnote"><span class="mini-check">✓</span> Free options highlighted <span class="footnote-separator">·</span> Independent directory <span class="footnote-separator">·</span> No account needed</div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="orbit-node node-one">⌘</div><div class="orbit-node node-two">✳</div><div class="orbit-node node-three">◇</div>
+            <div class="hub-core"><div class="core-symbol">B<span>✳</span></div><strong>ONE HUB</strong><small>INFINITE WORKFLOWS</small></div>
+            <div class="hero-art-caption">DISCOVER <span>•</span> COMPARE <span>•</span> CREATE</div>
+          </div>
+          <div class="hero-bottom-rule"></div>
+        </section>
+
+        <section class="advisor-panel" id="advisorPanel" aria-labelledby="advisorTitle">
+          <div class="advisor-intro"><div class="advisor-icon">✳</div><div><div class="section-kicker">SMART TOOL FINDER</div><h2 id="advisorTitle">What are you working on?</h2><p>Choose a goal and get a focused shortlist.</p></div></div>
+          <div class="advisor-controls"><label class="select-wrap" for="taskSelect"><span class="sr-only">Choose your task</span><select id="taskSelect"><option value="coding">Coding & debugging</option><option value="website">Build a website / app</option><option value="ideas">Ideas & project planning</option><option value="ui">UI/UX & web design</option><option value="image">Image generation & editing</option><option value="video">Video creation & editing</option><option value="research">Research & learning</option><option value="writing">Writing & documents</option><option value="audio">Voice, music & audio</option><option value="automation">Automation & workflows</option></select><span class="select-chevron">⌄</span></label><button id="recommendButton" class="button button-primary">Recommend tools <span>→</span></button></div>
+          <div class="advisor-results" id="advisorResults" hidden aria-live="polite"></div>
+        </section>
+
+        <section class="stats-row" aria-label="Directory overview">
+          <div class="stat-item"><span class="stat-number" id="statTools">—</span><span class="stat-label">TOOLS INDEXED</span></div>
+          <div class="stat-item"><span class="stat-number" id="statCategories">—</span><span class="stat-label">CATEGORIES</span></div>
+          <div class="stat-item"><span class="stat-number">$0</span><span class="stat-label">TO START BROWSING</span></div>
+          <div class="stat-note"><span class="status-dot"></span> Free access options are prioritised</div>
+        </section>
+
+        <section class="catalog-section" id="catalogSection" aria-labelledby="catalogTitle">
+          <div class="section-header">
+            <div><div class="section-kicker">THE DIRECTORY</div><h2 id="catalogTitle">Explore AI tools <span class="heading-count" id="resultCount">—</span></h2><p class="section-subtitle">Useful picks across the AI ecosystem.</p></div>
+            <div class="catalog-actions"><label class="sort-wrap" for="sortSelect"><span>Sort by</span><select id="sortSelect"><option value="recommended">Recommended</option><option value="name">Name A–Z</option><option value="category">Category</option></select></label><button class="filter-button" id="clearFiltersButton">↺ <span>Reset</span></button></div>
+          </div>
+          <div class="filter-bar"><div class="filter-chips" id="filterChips" aria-label="Filter by category"></div><div class="active-filter-note" id="activeFilterNote">Showing all tools</div></div>
+          <div class="tools-grid" id="toolsGrid" aria-live="polite"><div class="loading-state">Loading the directory…</div></div>
+          <div class="empty-state" id="emptyState" hidden><div class="empty-orbit">⌕</div><h3>No matching tools found</h3><p>Try another keyword or clear the current filters.</p><button class="button button-secondary" id="emptyResetButton">Clear filters</button></div>
+          <div class="catalog-footer"><span id="catalogFooterText">Curated for practical workflows</span><button class="text-button" id="showAllButton">Show all tools <span>→</span></button></div>
+        </section>
+        <section class="disclaimer-strip"><span class="disclaimer-icon">i</span><p><strong>Free does not always mean unlimited.</strong> Many providers use credits, message caps, queues, watermarks or feature restrictions. Check each provider’s current plan before depending on it.</p><a href="privacy.html">Privacy & data</a></section>
+      </section>
+
+      <section id="compareView" class="view secondary-view" aria-labelledby="compareTitle" hidden>
+        <div class="page-heading"><div class="section-kicker">SIDE-BY-SIDE</div><h1 id="compareTitle">Compare <span>your shortlist.</span></h1><p>Choose up to three tools from Discover to compare their focus, access model and best use cases.</p></div>
+        <div id="compareContent" class="compare-content"></div>
+      </section>
+
+      <section id="savedView" class="view secondary-view" aria-labelledby="savedTitle" hidden>
+        <div class="page-heading"><div class="section-kicker">YOUR COLLECTION</div><h1 id="savedTitle">Saved <span>for later.</span></h1><p>Your shortlist stays in this browser. No account required.</p></div>
+        <div id="savedContent" class="tools-grid saved-grid"></div>
+      </section>
+
+      <footer class="site-footer">
+        <a class="footer-brand" href="#discover"><span class="footer-mark">B✳</span> BDX AI HUB</a>
+        <span>Independent AI discovery. Built for curious minds.</span>
+        <div><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="DEPLOYMENT.md">Deployment</a><span>© <span id="yearLabel"></span> BDX</span></div>
+      </footer>
+    </main>
+  </div>
+
+  <div class="compare-dock" id="compareDock" hidden><div><span class="dock-count" id="dockCount">0</span><strong>tools selected</strong><small>Up to 3 tools</small></div><div class="dock-actions"><button id="clearCompareButton" class="text-button">Clear</button><button id="openCompareButton" class="button button-primary">Compare now <span>→</span></button></div></div>
+
+  <dialog id="toolDialog" class="tool-dialog"><div id="toolDialogContent"></div><button class="dialog-close" data-close-dialog aria-label="Close">×</button></dialog>
+  <dialog id="notificationDialog" class="settings-dialog"><button class="dialog-close" data-close-dialog aria-label="Close">×</button><div class="dialog-kicker">PREFERENCES</div><h2>Notifications</h2><p>Browser notifications can be tested on this device. Background alerts are not enabled in this static release.</p><div class="setting-row"><div><strong>Browser permission</strong><small id="notificationPermission">Not requested</small></div><button class="button button-secondary" id="enableNotificationsButton">Enable</button></div><div class="setting-row"><div><strong>Test notification</strong><small>Send a local test alert to this browser.</small></div><button class="button button-primary" id="testNotificationButton">Send test</button></div><p class="small-note">No push server, account alerts or email notifications are configured.</p></dialog>
+  <dialog id="aboutDialog" class="settings-dialog"><button class="dialog-close" data-close-dialog aria-label="Close">×</button><div class="dialog-kicker">ABOUT THE PROJECT</div><h2>BDX AI HUB</h2><p>A free-first directory that helps people discover and compare AI tools by task. We are independent and are not affiliated with the listed providers.</p><div class="about-meta"><span>Version <strong>1.0.0</strong></span><span>Local-first preferences</span><span>No account required</span></div><p class="small-note">Tool plans, pricing, availability and features can change. Always confirm important details on the provider’s official site.</p></dialog>
+  <div class="toast-region" id="toastRegion" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
